@@ -10,7 +10,13 @@ Installing Cobol, is now as easy as installing `open-cobol` in brew:
 $ brew install open-cobol
 ```
 
-If you don't store credidentials in Enviroment Variables, skip to the next step. In Cobol to get enviroment variables and put them into variables, call this:
+In our COBOL example, we are using Environment Variables.  You can set your own Environment Variables but following this link:
+
+<a href="http://stackoverflow.com/questions/7501678/set-environment-variables-on-mac-os-x-lion">http://stackoverflow.com/questions/7501678/set-environment-variables-on-mac-os-x-lion</a>
+
+Set some SendGrid Credentials.  $SENDGRID_USERNAME  &&  $SENDGRID_PASSWORD.
+
+In Cobol, we get Environment Variables and put them into variables, like so:
 
 ```
     ACCEPT SG-AUTH-USERNAME FROM ENVIRONMENT "SENDGRID_USERNAME".
