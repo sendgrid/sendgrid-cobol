@@ -3,3 +3,4 @@ sendgridtests.c
 
 makefile
 *.o
+sendgrid_demo
