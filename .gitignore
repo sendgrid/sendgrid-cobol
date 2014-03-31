@@ -2,5 +2,5 @@
 sendgridtests.c
 
 makefile
-*.o
 sendgrid_demo
+sendgrid_demo.o
