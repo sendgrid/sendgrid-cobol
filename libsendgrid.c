@@ -13,3 +13,9 @@ sg_test(char *sgUsername, char *sgPassword, char *sgUrl)
 
   return 0;
 }
+
+function_pt(void *ptr, size_t size, size_t nmemb, void *stream)
+{
+  printf("%d", atoi(ptr));
+}
+
