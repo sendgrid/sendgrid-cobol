@@ -4,9 +4,23 @@
 
 static const char* sgUrl = "https://api.sendgrid.com/api/mail.send.json";
 
+static void check_error(int error_code, const char *action)
+{
+  const git_error *error = giterr_last();
+  if (!error_code)
+    return;
+
+  printf("Error %d %s - %s\n", error_code, action,
+   (error && error->message) ? error->message : "???");
+  
+  exit(1);
+}
+
 int 
 send_email(char *sgUsername, char *sgPassword, char *sgToEmail, char *sgFromEmail, char *sgSubject, char *sgBodyText)
 {
+
+  printf("Creating %s Payload...  Done.\n", POST);
 
   CURL *curl;
   curl_global_init(CURL_GLOBAL_ALL);
@@ -17,7 +31,11 @@ send_email(char *sgUsername, char *sgPassword, char *sgToEmail, char *sgFromEmai
   curl_easy_setopt(curl, CURLOPT_USERNAME, sgUsername);
   curl_easy_setopt(curl, CURLOPT_PASSWORD, sgPassword);
   curl_easy_setopt(curl, CURLOPT_POSTFIELDS, sgToEmail, sgFromEmail, sgSubject, sgBodyText);
-  curl_easy_perform(curl);
+  
+  error = curl_easy_perform(curl);
+  check_error(error, "Attempting to send email...");
+
+  printf("Sending POST Payload to SendGrid WebApi...  Done. Email Sent.\n");
   curl_easy_cleanup(curl);
 
   return 0;
