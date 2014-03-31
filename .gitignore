@@ -1,6 +1,5 @@
 .DS_Store
 sendgridtests.c
-
 makefile
 sendgrid_demo
 sendgrid_demo.o
