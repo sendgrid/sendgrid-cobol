@@ -2,28 +2,16 @@
 #include <stdlib.h>
 #include <curl/curl.h>
 
+const char[] sgUrl = 'https://api.sendgrid.com/api/mail.send.json'
+
 int 
-send_email(char *sgUsername, char *sgPassword, char *sgUrl, char *sgToEmail, char *sgFromEmail, char *sgSubject, char *sgBodyText)
+send_email(char *sgUsername, char *sgPassword, char *sgToEmail, char *sgFromEmail, char *sgSubject, char *sgBodyText)
 
-int
-sg_test(char *sgUsername, char *sgPassword, char *sgUrl)
-{
-  printf("Sendgrid Username: %s\n", sgUsername);
-  printf("Sendgrid Password: %s\n", sgPassword);
-  printf("Sendgrid Url: %s\n", sgUrl);
-
-  return 0;
-}
-
-int
-send_email(char *sgUsername, char *sgPassword, char *sgUrl, char *sgToEmail, char *sgFromEmail, char *sgSubject, char *sgBodyText)
 
 
 // LOOK HERE
 
-curl -d 'to=robin@sendgrid.com&toname=Robin Johnson&subject=LOL EMAIL&text=testingtextbody&from=rbin@sendgrid.com&api_user=$SENDGRID_USERNAME&api_key=$SENDGRID_PASSWORD' https://api.sendgrid.com/api/mail.send.json
 
-//
 
 
 int 
