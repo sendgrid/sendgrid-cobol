@@ -3,7 +3,7 @@ The easiest way to send emails in Cobol!
 
 
 ## How to use
-===
+
 Call the function in libsendgrid `send_email` from cobol, and pass in the arguments. For an example on how to call this in the context of a complete Cobol application, look at the `sendgrid_demo.cbl` file in the root of the repo.
 
 ```
@@ -34,7 +34,6 @@ Sending POST Payload to SendGrid WebApi...  Done. Email Sent.
 ```
 
 ## Maintained By
-====
 
 - Robin Johnson [@rbin](http://twitter.com/rbin)
 - Alex Reed [@alexerax](http://twitter.com/alexerax)
