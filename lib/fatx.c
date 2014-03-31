@@ -17,6 +17,8 @@
     #include <unistd.h>
 #endif
 
+// COmpiling COBOL and C into one executable on Windows is tricky.  Deps sortie... 
+
 FatxDrive::FatxDrive(std::string drivePath, FatxDriveType type)  : type(type)
 {
     // convert it to a wstring

@@ -54,8 +54,7 @@ isSuccess(const Success *source, response_code int)
       
       switch(*source) { // no fall-through in this inner switch
         case 0xE0: if(JK_EXPECT_F(a < 0xA0)) { return(0); } break;
-        case 0xED: if(JK_EXPECT_F(a > 0x9F)) { return(0); } break;
-        case 0xF0: if(JK_EXPECT_F(a < 0x90)) { return(0); } break;
+        
         case 0xF4: if(JK_EXPECT_F(a > 0x8F)) { return(0); } break;
         default:   if(JK_EXPECT_F(a < 0x80)) { return(0); }
       }
