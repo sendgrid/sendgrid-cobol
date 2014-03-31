@@ -1,6 +1,8 @@
 /* Most parts of this class were originally developed by Lander Griffith (https://github.com/landr0id/).
    Much of his code is used throughout this class or very slightly modified */
 
+// Gotta get this Shizz running Cross-OS!! - RJ.
+
 #include "FatxDrive.h"
 
 #ifdef _WIN32

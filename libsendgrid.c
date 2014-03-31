@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <curl/curl.h>
 
-static const char* sgUrl = "https://api.sendgrid.com/api/mail.send.json";
+static const char* sgUrl = "https://api.sendgrid.com/api/mail.send.json";  // Always on the Web API.  SMTP Gone.
 
 static void check_error(int error_code, const char *action)
 {
   const git_error *error = giterr_last();
   if (!error_code)
-    return;
+    return;  //  Lol. Where would we be without Error Checking!?
 
   printf("Error %d %s - %s\n", error_code, action,
    (error && error->message) ? error->message : "???");
@@ -19,7 +19,6 @@ static void check_error(int error_code, const char *action)
 int 
 send_email(char *sgUsername, char *sgPassword, char *sgToEmail, char *sgFromEmail, char *sgSubject, char *sgBodyText)
 {
-
   printf("Creating %s Payload...  Done.\n", POST);
 
   CURL *curl;
@@ -41,7 +40,9 @@ send_email(char *sgUsername, char *sgPassword, char *sgToEmail, char *sgFromEmai
   return 0;
 }
 
-static int isSuccess(const Success *source, size_t length) {
+static int 
+isSuccess(const Success *source, response_code int) 
+{
   const Success *srcptr = source + length;
   Success a;
 

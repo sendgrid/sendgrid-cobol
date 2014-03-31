@@ -1,11 +1,11 @@
 // [Test]
  void CreateMimeMessage()
 {
-      var message = SendGrid.GetInstance();
-      var attachment = Path.GetTempFileName();
-      var text = "this is a test";
-      var html = "<b>This<\b> is a better test";
-      var headers = new KeyValuePair<String, String>("custom", "header");
+      char[] message = SendGrid.GetInstance();
+      char[] attachment = Path.GetTempFileName();
+      char[] text = "this is a test";
+      char[] html = "<b>This<\b> is a better test";
+      char[] headers = new KeyValuePair<String, String>("custom", "header");
       message.AddAttachment(attachment);
       message.Text = text;
       message.Html = html;
@@ -14,10 +14,10 @@
       message.AddHeaders(new Dictionary<string, string> {{headers.Key, headers.Value}});
       message.EnableGravatar();
 
-      var mime = message.CreateMimeMessage();
+      char[] mime = message.CreateMimeMessage();
 
-      var sr = new StreamReader(mime.AlternateViews[0].ContentStream);
-      var result = sr.ReadToEnd();
+      char[] sr = new StreamReader(mime.AlternateViews[0].ContentStream);
+      char[] result = sr.ReadToEnd();
       Assert.AreEqual(text, result);
 
       sr = new StreamReader(mime.AlternateViews[1].ContentStream);
@@ -28,7 +28,7 @@
       Assert.AreEqual(headers.Value, result);
 
       result = mime.Headers.Get("X-Smtpapi");
-      var expected = "{\"filters\" : {\"gravatar\" : {\"settings\" : {\"enable\" : \"1\"}}}}";
+      char[] expected = "{\"filters\" : {\"gravatar\" : {\"settings\" : {\"enable\" : \"1\"}}}}";
       Assert.AreEqual(expected, result);
 
       result = mime.Attachments[0].Name;
@@ -38,109 +38,109 @@
 // [Test]
  void DisableBcc()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.DisableBcc();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"bcc\" : {\"settings\" : {\"enable\" : \"0\"}}}}", json);
 }
 
 // [Test]
  void DisableBypassListManagement()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.DisableBypassListManagement();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"bypass_list_management\" : {\"settings\" : {\"enable\" : \"0\"}}}}", json);
 }
 
 // [Test]
  void DisableClickTracking()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.DisableClickTracking();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"clicktrack\" : {\"settings\" : {\"enable\" : \"0\"}}}}", json);
 }
 
 // [Test]
  void DisableFooter()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.DisableFooter();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"footer\" : {\"settings\" : {\"enable\" : \"0\"}}}}", json);
 }
 
 // [Test]
  void DisableGoogleAnalytics()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.DisableGoogleAnalytics();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"ganalytics\" : {\"settings\" : {\"enable\" : \"0\"}}}}", json);
 }
 
 // [Test]
  void DisableSpamCheck()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.DisableSpamCheck();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"spamcheck\" : {\"settings\" : {\"enable\" : \"0\"}}}}", json);
 }
 
 // [Test]
  void DisableTemplate()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.DisableTemplate();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"template\" : {\"settings\" : {\"enable\" : \"0\"}}}}", json);
 }
 
 // [Test]
  void DisableUnsubscribe()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.DisableUnsubscribe();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"subscriptiontrack\" : {\"settings\" : {\"enable\" : \"0\"}}}}", json);
 }
 
 // [Test]
  void EnableBcc()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
-      var email = "somebody@someplace.com";
+      char[] email = "somebody@someplace.com";
       sendgrid.EnableBcc(email);
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"bcc\" : {\"settings\" : {\"enable\" : \"1\",\"email\" : \"" + email + "\"}}}}",
             json);
 }
@@ -148,23 +148,23 @@
 // [Test]
  void EnableBypassListManagement()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.EnableBypassListManagement();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"bypass_list_management\" : {\"settings\" : {\"enable\" : \"1\"}}}}", json);
 }
 
 // [Test]
  void EnableClickTracking()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
       sendgrid.EnableClickTracking(true);
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"clicktrack\" : {\"settings\" : {\"enable\" : \"1\",\"enable_text\" : \"1\"}}}}",
             json);
 }
@@ -172,16 +172,16 @@
 // [Test]
  void EnableFooter()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
-      var text = "My Text";
-      var html = "<body><p>hello, <% name %></p></body>";
-      var escHtml = "<body><p>hello, <% name %><\\/p><\\/body>";
+      char[] text = "My Text";
+      char[] html = "<body><p>hello, <% name %></p></body>";
+      char[] escHtml = "<body><p>hello, <% name %><\\/p><\\/body>";
 
       sendgrid.EnableFooter(text, html);
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual(
             "{\"filters\" : {\"footer\" : {\"settings\" : {\"enable\" : \"1\",\"text\\/plain\" : \"" + text +
             "\",\"text\\/html\" : \"" + escHtml + "\"}}}}", json);
@@ -190,24 +190,24 @@
 // [Test]
  void EnableGoogleAnalytics()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
-      var source = "SomeDomain.com";
-      var medium = "Email";
-      var term = "keyword1, keyword2, keyword3";
-      var content = "PG, PG13";
-      var campaign = "my_campaign";
+      char[] source = "SomeDomain.com";
+      char[] medium = "Email";
+      char[] term = "keyword1, keyword2, keyword3";
+      char[] content = "PG, PG13";
+      char[] campaign = "my_campaign";
 
       sendgrid.EnableGoogleAnalytics(source, medium, term, content, campaign);
 
-      var jsonSource = "\"utm_source\" : \"SomeDomain.com\"";
-      var jsonMedium = "\"utm_medium\" : \"" + medium + "\"";
-      var jsonTerm = "\"utm_term\" : \"" + term + "\"";
-      var jsonContent = "\"utm_content\" : \"" + content + "\"";
-      var jsonCampaign = "\"utm_campaign\" : \"" + campaign + "\"";
+      char[] jsonSource = "\"utm_source\" : \"SomeDomain.com\"";
+      char[] jsonMedium = "\"utm_medium\" : \"" + medium + "\"";
+      char[] jsonTerm = "\"utm_term\" : \"" + term + "\"";
+      char[] jsonContent = "\"utm_content\" : \"" + content + "\"";
+      char[] jsonCampaign = "\"utm_campaign\" : \"" + campaign + "\"";
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"ganalytics\" : {\"settings\" : {\"enable\" : \"1\"," +
                       jsonSource + "," + jsonMedium + "," + jsonTerm + "," + jsonContent + "," + jsonCampaign + "}}}}",
             json);
@@ -216,38 +216,38 @@
 // [Test]
  void EnableGravatar()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.EnableGravatar();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"gravatar\" : {\"settings\" : {\"enable\" : \"1\"}}}}", json);
 }
 
 // [Test]
  void EnableOpenTracking()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.EnableOpenTracking();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"opentrack\" : {\"settings\" : {\"enable\" : \"1\"}}}}", json);
 }
 
 // [Test]
  void EnableSpamCheck()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
-      var score = 5;
-      var url = "http://www.example.com";
+      char[] score = 5;
+      char[] url = "http://www.example.com";
       sendgrid.EnableSpamCheck(score, url);
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual(
             "{\"filters\" : {\"spamcheck\" : {\"settings\" : {\"enable\" : \"1\",\"maxscore\" : \"5\",\"url\" : \"http:\\/\\/www.example.com\"}}}}",
             json);
@@ -256,14 +256,14 @@
 // [Test]
  void EnableTemplate()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
-      var html = "<% hadhdhd %>";
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
+      char[] html = "<% hadhdhd %>";
 
-      var escHtml = "<% hadhdhd %>";
+      char[] escHtml = "<% hadhdhd %>";
       sendgrid.EnableTemplate(html);
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual(
             "{\"filters\" : {\"template\" : {\"settings\" : {\"enable\" : \"1\",\"text\\/html\" : \"" + escHtml + "\"}}}}", json);
 
@@ -274,26 +274,26 @@
 // [Test]
  void EnableUnsubscribe()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
-      var text = "<% %>";
-      var html = "<% name %>";
+      char[] text = "<% %>";
+      char[] html = "<% name %>";
 
-      var jsonText = "\"text\\/plain\" : \"" + text + "\"";
-      var jsonHtml = "\"text\\/html\" : \"" + html + "\"";
+      char[] jsonText = "\"text\\/plain\" : \"" + text + "\"";
+      char[] jsonHtml = "\"text\\/html\" : \"" + html + "\"";
 
       sendgrid.EnableUnsubscribe(text, html);
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"subscriptiontrack\" : {\"settings\" : {\"enable\" : \"1\"," +
                       jsonText + "," + jsonHtml + "}}}}", json);
 
       header = new Header();
       sendgrid = new SendGrid(header);
 
-      var replace = "John";
-      var jsonReplace = "\"replace\" : \"" + replace + "\"";
+      char[] replace = "John";
+      char[] jsonReplace = "\"replace\" : \"" + replace + "\"";
 
       sendgrid.EnableUnsubscribe(replace);
 
@@ -313,24 +313,24 @@
 // [Test]
  void TestDisableGravatar()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.DisableGravatar();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"gravatar\" : {\"settings\" : {\"enable\" : \"0\"}}}}", json);
 }
 
 // [Test]
  void TestDisableOpenTracking()
 {
-      var header = new Header();
-      var sendgrid = new SendGrid(header);
+      char[] header = new Header();
+      char[] sendgrid = new SendGrid(header);
 
       sendgrid.DisableOpenTracking();
 
-      var json = header.JsonString();
+      char[] json = header.JsonString();
       Assert.AreEqual("{\"filters\" : {\"opentrack\" : {\"settings\" : {\"enable\" : \"0\"}}}}", json);
 }
 }

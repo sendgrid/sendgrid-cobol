@@ -12,10 +12,10 @@
            01 SG-AUTH-PASSWORD   PIC X(50)     VALUE SPACES.
 
       *    Email params
-           01 SG-MAIL-TO         PIC X(100)    VALUE "test@gmail.com".
-           01 SG-MAIL-FROM       PIC X(100)    VALUE "me@gmail.com".
-           01 SG-MAIL-SUBJECT    PIC X(100)    VALUE "Test Email".
-           01 SG-MAIL-BODY-TEXT  PIC X(10000)  VALUE "Welcome Guys! xo".
+           01 SG-MAIL-TO         PIC X(100)    VALUE "my@email.com".
+           01 SG-MAIL-FROM       PIC X(100)    VALUE "your@email.com".
+           01 SG-MAIL-SUBJECT    PIC X(100)    VALUE "Check This out!".
+           01 SG-MAIL-BODY-TEXT  PIC X(10000)  VALUE "HI FROM SENDGRID!!".
 
 
        PROCEDURE DIVISION.
