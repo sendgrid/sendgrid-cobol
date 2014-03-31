@@ -2,3 +2,4 @@
 sendgridtests.c
 
 makefile
+*.o
