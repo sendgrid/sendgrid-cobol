@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID.   sendgrid-demo.
+       PROGRAM-ID.   sendgrid.
        AUTHOR.       Robin Johnson. Alex Reed.
 
        ENVIRONMENT DIVISION.
