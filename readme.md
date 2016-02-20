@@ -55,4 +55,4 @@ Sending POST Payload to SendGrid WebApi...  Done. Email Sent.
 ## Maintained By
 
 - Robin Johnson [@rbin](http://twitter.com/rbin)
-- Alex Reed [@alexerax](http://twitter.com/alexerax)
+- Alex Forbes-Reed [@0xdeafcafe](http://twitter.com/0xdeafcafe)
